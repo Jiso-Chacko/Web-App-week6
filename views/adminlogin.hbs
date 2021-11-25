@@ -1,0 +1,30 @@
+<div class="container d-flex mt-5 align-itmes-center justify-content-center">
+   
+    <div class=" mt-5 align-itmes-center justify-content-center " style="width: 25rem;">
+        {{#if adminLoginErr}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Admin login error!</strong> Please enter correct Username and Password.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+        <form action="/admin-log" method="POST">
+            <h4>Admin Login</h4>
+            
+            <div class="mb-3">
+                <label for="usr" class="form-label">Username</label>
+                <input type="username" class="form-control" id="usr" 
+                    name="username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="Password" >
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+
+
+</div>

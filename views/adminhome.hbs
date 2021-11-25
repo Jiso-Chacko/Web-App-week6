@@ -1,0 +1,84 @@
+
+<div class="container d-flex justify-content-between ">
+    <div class="row">
+    <a href="admin/add-user" class="btn btn-success ml-auto" style="margin-top: 5rem;">Add User</a>
+</div>
+<form class="form-inline " action="/admin/search-user/" style="margin-top: 4.5rem;" method="GET">
+  <label for="email" class="mr-sm-2" ></label>
+  <input type="text" name="name" class="form-control mb-2 mr-sm-2" placeholder="Search User" >
+  {{!-- <a href="/admin/search-user" class="btn btn-primary" style="margin-bottom: 0.5rem;">Search</a> --}}
+  <button type="submit" class="btn btn-primary mb-2">Search</button>
+</form>
+
+</div>
+
+
+<div class="container mt-5">
+  {{#if searchValue}}
+  <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+        {{!-- <th scope="col">No.</th> --}}
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Block/unblock</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each searchUser}}
+      
+    <tr>
+      {{!-- <th scope="row"></th> --}}
+      <td>{{this.name}}</td>
+      <td>{{this.email}}</td>    
+      <td><a href="/admin/delete-user?id={{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete {{this.name}}?')">Delete</a></td>
+      <td><a href="/admin/edit-user?id={{this._id}}" class="btn btn-primary" onclick="return confirm('Are you sure you want to edit {{this.name}}?')">Edit</a></td>
+      <td>
+        {{#if this.isEnabled }}
+        <a class="btn btn-secondary" style="width: 5.5rem;" onclick="return confirm('Are you sure to disable {{ this.name }}? ')" href="/admin/disable-user?id={{ this._id }}">Block</a>
+         {{else }}
+         <a class="btn btn-success" style="width: 5.5rem;" onclick="return confirm('Are you sure to enable {{ this.name }}? ')"  href="/admin/enable-user?id={{ this._id }}">Unblock</a>
+         {{/if }}
+      </td>     
+    </tr> 
+    {{/each}}  
+  </tbody>
+</table>
+  {{else}}
+
+  
+    <table class="table table-hover table-dark">
+  <thead>
+    <tr>
+        {{!-- <th scope="col">No.</th> --}}
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Block/unblock</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each users}}
+    <tr>
+      {{!-- <th scope="row"></th> --}}
+      <td>{{this.name}}</td>
+      <td>{{this.email}}</td>    
+      <td><a href="/admin/delete-user?id={{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete {{this.name}}?')">Delete</a></td>
+      <td><a href="/admin/edit-user?id={{this._id}}" class="btn btn-primary" onclick="return confirm('Are you sure you want to edit {{this.name}}?')">Edit</a></td>  
+      <td>
+        {{#if this.isEnabled }}
+        <a class="btn btn-secondary" style="width: 5.5rem;" onclick="return confirm('Are you sure to disable {{ this.name }}? ')" href="/admin/disable-user?id={{ this._id }}">Block</a>
+         {{else }}
+         <a class="btn btn-success" style="width: 5.5rem;" onclick="return confirm('Are you sure to enable {{ this.name }}? ')"  href="/admin/enable-user?id={{ this._id }}">Unblock</a>
+         {{/if }}
+      </td>   
+    </tr> 
+    {{/each}}  
+  </tbody>
+</table>
+
+{{/if}}
+</div>

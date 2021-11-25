@@ -1,0 +1,30 @@
+
+
+
+
+<section>
+    <div class="container mt-5">
+        <div class="row ">
+            {{#each product}}
+            <div class="col-md-4 mt-5">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{this.image}}" class="card-img-top" alt="Image Not found" style="height: 14rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.name}}</h5>
+                        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                            <p class="card-text">{{this.description}}</p>
+                            <p class="card-text">{{this.prize}}</p>
+                        </div>
+                        <p class="card-text">{{this.place}}</p>
+                        {{!-- <a href="#" class="btn btn-outline-success btn-sm d-flex justify-content-center">Order Now!</a> --}}
+                        <div class=" d-flex flex-direction-row align-itmes-center justify-content-center">
+                            <button type="button" class="btn btn-outline-success btn-sm" style="width: 15rem;">Order
+                                Now!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

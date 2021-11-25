@@ -1,0 +1,63 @@
+<div class="container d-flex mt-5 align-itmes-center justify-content-center">
+<div class="row">
+
+    <div class="col-md-12 mt-5 align-itmes-center justify-content-center ">
+        {{#if Loginerr}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Invalid email or password!</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+        {{#if succMess}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Successfully Registered!</strong> Now please Login.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+
+        {{#if blockMessage}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>You are have been blocked by the admin!</strong> Please contact customer care.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}} 
+        {{#if loginNullErr}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Fields cannot be empty!</strong> Please fill the values.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}   
+
+        <form action="/" method="POST" enctype="multipart/form-data" style="width: 45rem;">
+            
+            <h4>Login!</h4>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="email" >
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" >
+            </div>
+            
+            <button type="submit" class="btn btn-primary ">Submit</button>
+            <div id="register-link" class="text-right">
+                <a href="/register" class="text-primary">Create a new account</a>
+            </div>
+        </form>
+    </div>
+    </div>
+
+
+</div>

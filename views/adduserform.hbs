@@ -1,0 +1,46 @@
+<div class="container d-flex mt-5 align-itmes-center justify-content-center">
+   
+    <div class=" mt-5 align-itmes-center justify-content-center " style="width: 25rem;">
+        {{#if addUsrErr}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>User already exists!</strong> Please add another user.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+        {{#if addEmptyUserErr}}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Fileds cannot be empty!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+        <form action="/admin" method="POST" enctype="multipart/form-data">
+            <h4>Add New User</h4>
+
+            <div class="mb-3">
+                <label for="usr" class="form-label">New Username</label>
+                <input type="name" class="form-control" id="usr" 
+                    name="name">
+            </div>
+            
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    name="email">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+    </div>
+
+
+</div>
